@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@RestController
-@RequestMapping("/giochi")
+@RestController // Annotazione per dichiarare la classe come controller
+@RequestMapping("/giochi") // Annotazione per definire il percorso di base per le richieste HTTP
 public class GiocoController {
     @Autowired
     private GiocoService giocoService;

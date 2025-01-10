@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import com.giochi.lista.giochi.model.Gioco;
 import com.giochi.lista.giochi.repository.GiocoRepository;
 
-@Service
+@Service // Annotazione per dichiarare la classe come servizio
 public class GiocoService {
-    @Autowired
+    @Autowired // Annotazione per l'injecting delle dipendenze della classe repository, in modo tale da utilizzare le funzioni di JPA
     private GiocoRepository giocoRepository;
 
     public Gioco saveGioco(Gioco gioco) {
