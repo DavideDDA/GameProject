@@ -10,7 +10,8 @@ import com.giochi.lista.giochi.repository.GiocoRepository;
 
 @Service // Annotazione per dichiarare la classe come servizio
 public class GiocoService {
-    @Autowired // Annotazione per l'injecting delle dipendenze della classe repository, in modo tale da utilizzare le funzioni di JPA
+    @Autowired // Annotazione per l'injecting delle dipendenze della classe repository, in modo
+               // tale da utilizzare le funzioni di JPA
     private GiocoRepository giocoRepository;
 
     public Gioco saveGioco(Gioco gioco) {
@@ -27,6 +28,14 @@ public class GiocoService {
 
     public List<Gioco> getAll() {
         return giocoRepository.findAll();
+    }
+
+    public Gioco deleteGioco(Long id) {
+        Gioco gioco = giocoRepository.findById(id).orElse(null);
+        if (gioco != null) {
+            giocoRepository.delete(gioco);
+        }
+        return gioco;
     }
 
 }
