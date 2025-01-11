@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.giochi.lista.giochi.DTO.GiochiDTO;
 import com.giochi.lista.giochi.model.Gioco;
 import com.giochi.lista.giochi.services.GiocoService;
 
@@ -38,13 +39,13 @@ public class GiocoController {
     }
 
     @GetMapping
-    public List<Gioco> getAll() {
-        return giocoService.getAll();
+    public List<GiochiDTO> getAll() {
+        return giocoService.getAllGiochi();
     }
 
     @DeleteMapping("/{id}")
-    public Gioco deleteGioco(@PathVariable Long id) {
-        return giocoService.deleteGioco(id);
+    public void deleteGioco(@PathVariable Integer id) {
+        giocoService.deleteGioco(id);
     }
 
 }
