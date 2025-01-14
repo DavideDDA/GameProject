@@ -38,6 +38,11 @@ public class GiocoController {
         return giocoService.searchByGenre(genere);
     }
 
+    @GetMapping("/{id}")
+    public Gioco getGiocoById(@PathVariable Integer id) {
+        return giocoService.getGiocoById(id);
+    }
+
     @GetMapping
     public List<GiochiDTO> getAll() {
         return giocoService.getAllGiochi();

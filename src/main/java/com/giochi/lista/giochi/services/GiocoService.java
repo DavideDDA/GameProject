@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.giochi.lista.giochi.DTO.GiochiDTO;
+import com.giochi.lista.giochi.exceptions.GiocoNotFound;
 import com.giochi.lista.giochi.model.Gioco;
 import com.giochi.lista.giochi.repository.GiocoRepository;
 
@@ -38,5 +39,9 @@ public class GiocoService {
 
     public void deleteGioco(Integer id) {
         giocoRepository.deleteById(id);
+    }
+
+    public Gioco getGiocoById(Integer id) {
+        return giocoRepository.findById(id).orElseThrow(() -> new GiocoNotFound(id));
     }
 }
